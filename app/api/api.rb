@@ -25,6 +25,17 @@ class API < Grape::API
       status(200)
     end
 
+    desc "Mark a feed item as unread"
+    put :unread do
+      #authenticate!
+
+      feed_item = FeedItem.find(params[:id])
+      feed_item.read = false
+      feed_item.save
+
+      status(200)
+    end
+
     desc "Star a feed item"
     put :star do
       #authenticate!

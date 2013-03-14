@@ -2,7 +2,9 @@ class FeedItemDecorator < Draper::Decorator
   delegate_all
 
   def date
-    model.published_date.strftime("%H:%M %p")
+    old = model.published_date < 1.day.ago
+    format = (old) ? '%d/%m/%y' : "%H:%M %p"
+    model.published_date.strftime(format)
   end
 
   def summary(length = 500)
@@ -12,8 +14,6 @@ class FeedItemDecorator < Draper::Decorator
     summary = h.truncate content,
                      :length => length,
                      :omission => "..."
-    summary += " " + h.link_to(I18n.t(:read_more), model.url)
-    h.raw summary
   end
 
 end

@@ -5,8 +5,15 @@
       %span= feed_item.title
     .two.columns.mobile-one.date.hide-for-small= feed_item.date
 
+
   .row.feed-body
     .twelve.columns
       %p.summary= feed_item.summary
-      .details.show-for-small= "Published: #{feed_item.date}"
+
+    .twelve.columns
+      %ul.inline-list.details
+        %li.read-more= link_to(I18n.t(:read_more), feed_item.url)
+        %li.unread= link_to "Keep as Unread", "#"
+        %li.date.show-for-small= "#{feed_item.date}"
+
 

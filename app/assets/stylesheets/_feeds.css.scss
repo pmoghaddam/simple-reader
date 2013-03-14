@@ -81,12 +81,16 @@ aside {
   .feed-body {
     display: none;
     .summary {
-      margin-bottom: 0.75em;
+      margin-bottom: 0.25em;
     }
 
     .details {
       color: #666;
       margin-bottom: 0.75em;
+    }
+
+    .read-more {
+      font-weight: bold;
     }
   }
 }

@@ -1,7 +1,7 @@
 %header
   .row
     .six.columns.mobile-two
-      %h1 Simple Reader
+      %h1= link_to t(:simple_reader), root_path
     .six.columns.mobile-two
       #user-nav
         - if user_signed_in?

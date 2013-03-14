@@ -3,7 +3,6 @@ $(document).ready(function () {
         var $item = $(this).closest('.feed-item');
         $('.feed-body', $item).slideToggle();
 
-        // Declare as read
         var id = $item.attr('data-id');
         $.ajax({
             type: "POST",
@@ -31,6 +30,22 @@ $(document).ready(function () {
             data: { _method: 'PUT', id:id },
             dataType: 'json',
             success: success
+        });
+    });
+
+    $('.feed-item .unread').click(function() {
+        var $link = $(this);
+        var $item = $link.closest('.feed-item');
+
+        var id = $item.attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: '/api/v1/feed_items/unread.json',
+            data: { _method: 'PUT', id:id },
+            dataType: 'json',
+            success: function (msg) {
+                $item.removeClass('read');
+            }
         });
     });
 });
