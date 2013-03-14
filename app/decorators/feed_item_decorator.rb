@@ -6,7 +6,8 @@ class FeedItemDecorator < Draper::Decorator
   end
 
   def summary(length = 500)
-    summary = h.truncate model.summary,
+    content = model.summary || model.content || ""
+    summary = h.truncate content,
                      :length => length,
                      :omission => "..."
     summary += " " + h.link_to(I18n.t(:read_more), model.url)
