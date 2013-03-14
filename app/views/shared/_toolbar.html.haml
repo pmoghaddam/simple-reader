@@ -1,6 +1,10 @@
-.button-bar
+.button-bar.hide-for-small
   %ul.button-group
     %li= link_to "Refresh", refresh_feeds_path, class: 'a button success'
-
   %ul.button-group
     %li= link_to "Mark All as Read", mark_all_as_read_feeds_path, method: :put, class: 'a button secondary'
+
+-# Merge the methods together in the future
+%ul.button-group.show-for-small.even.two-up
+  %li= link_to "Refresh", refresh_feeds_path, class: 'a button success'
+  %li= link_to "Mark All as Read", mark_all_as_read_feeds_path, method: :put, class: 'a button secondary'

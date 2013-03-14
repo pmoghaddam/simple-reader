@@ -1,10 +1,12 @@
 .feed-item{class: feed_item.read ? 'read' : '', data: {id: feed_item.id}}
   .row.feed-header
-    .ten.columns.mobile-three.title
+    .ten.columns.title
       %span{class: feed_item.starred ? 'star active' : 'star'} Star
       %span= feed_item.title
-    .two.columns.mobile-one.date= feed_item.date
+    .two.columns.mobile-one.date.hide-for-small= feed_item.date
 
   .row.feed-body
     .twelve.columns
       %p.summary= feed_item.summary
+      .details.show-for-small= "Published: #{feed_item.date}"
+

@@ -55,10 +55,6 @@ header {
     font-weight: bold;
     font-size: 1em;
 
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-
     cursor: hand;
     cursor: pointer;
   }
@@ -76,14 +72,20 @@ header {
 
   .feed-body {
     display: none;
+    .summary {
+      margin-bottom: 0.75em;
+    }
+
+    .details {
+      color: #666;
+      margin-bottom: 0.75em;
+    }
   }
 }
 
 footer {
   margin: 2em 0;
-  .designed {
-    text-align: right;
-  }
+  text-align: center;
 }
 
 .pagination {
@@ -93,4 +95,35 @@ footer {
 .subscribe.button {
   padding: 5px;
   font-size: 0.8em;
+}
+
+//======================
+//
+// Screen size specific styling below
+//
+//======================
+
+/* Very large screens */
+@media only screen and (min-width: 1441px) {
+}
+
+/* Medium screens and up */
+@media only screen and (min-width: 768px) {
+  .feed-header .title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+/* Small screens */
+@media only screen and (max-width: 767px) {
+}
+
+/* Landscape Orientation */
+@media screen and (orientation: landscape) {
+}
+
+/* Portrait Orientation */
+@media screen and (orientation: portrait) {
 }
