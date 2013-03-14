@@ -2,11 +2,12 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = Feed.all(include: :feed_items)
+    @feed_ids = Feed.all.map { |f| f.id }
+    @feed_items = FeedItem.where(:feed_id => @feed_ids).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @feeds }
+      format.json { render json: @feed_items }
     end
   end
 
@@ -14,6 +15,7 @@ class FeedsController < ApplicationController
   # GET /feeds/1.json
   def show
     @feed = Feed.find(params[:id])
+    @feed_items = @feed.feed_items.page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # show.html.erb

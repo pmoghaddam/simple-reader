@@ -9,6 +9,7 @@ gem 'compass-rails', '1.0.1' # Compass (required before Foundation)
 gem 'zurb-foundation', '3.2.5' # Foundation front-end
 gem 'devise', '2.2.3' # User authentication
 gem "cells", "3.8.8" # Cells for widgets
+gem 'kaminari', '0.14.1' # Pagination
 
 group :production do
   gem 'newrelic_rpm', '~> 3.5.5.38' # Instrumenting

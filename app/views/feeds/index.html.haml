@@ -4,10 +4,10 @@
   %aside.three.columns
     = render_cell :feeds, :sidebar
   .nine.columns{role:'content'}
-    - @feeds.each do |feed|
-      - feed.feed_items.each do |feed_item|
-        .feed-item
-          %h2.title= feed_item.title
-          %p.summary= feed_item.summary
+    - @feed_items.each do |feed_item|
+      .feed-item
+        %h2.title= feed_item.title
+        %p.summary= feed_item.summary
+    = paginate @feed_items
 
 = render 'shared/footer'
