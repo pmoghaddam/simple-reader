@@ -25,5 +25,27 @@ class API < Grape::API
       status(200)
     end
 
+    desc "Star a feed item"
+    put :star do
+      #authenticate!
+
+      feed_item = FeedItem.find(params[:id])
+      feed_item.starred = true
+      feed_item.save
+
+      status(200)
+    end
+
+    desc "Un-star a feed item"
+    put :unstar do
+      #authenticate!
+
+      feed_item = FeedItem.find(params[:id])
+      feed_item.starred = false
+      feed_item.save
+
+      status(200)
+    end
+
   end
 end

@@ -1,8 +1,8 @@
 %header
   .row
-    .six.columns
+    .six.columns.mobile-two
       %h1 Simple Reader
-    #user-nav.six.columns
+    #user-nav.six.columns.mobile-two
       - if user_signed_in?
         = "Signed in as #{current_user.email}. Not you?"
         = link_to "Sign out", destroy_user_session_path, :method => :delete

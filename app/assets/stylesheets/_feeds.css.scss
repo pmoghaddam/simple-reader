@@ -37,9 +37,17 @@ header {
   .feed-header {
     margin: 0.5em 0 0.5em 0;
     line-height: 1.3em;
+  }
 
-    cursor: hand;
-    cursor: pointer;
+  .star {
+    color: #aaa;
+    display: inline-block;
+    width: 2em;
+
+    &.active {
+      font-weight: bold;
+      color: deeppink;
+    }
   }
 
   .title {
@@ -50,6 +58,9 @@ header {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+
+    cursor: hand;
+    cursor: pointer;
   }
 
   &.read .title {
@@ -81,5 +92,5 @@ footer {
 
 .subscribe.button {
   padding: 5px;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }

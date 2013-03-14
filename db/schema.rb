@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314070820) do
+ActiveRecord::Schema.define(:version => 20130314092258) do
 
   create_table "feed_items", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130314070820) do
     t.integer  "feed_id"
     t.text     "content"
     t.datetime "published_date"
+    t.boolean  "starred",        :default => false, :null => false
   end
 
   add_index "feed_items", ["feed_id", "url"], :name => "index_feed_items_on_feed_id_and_url", :unique => true

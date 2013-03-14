@@ -1,18 +1,36 @@
 $(document).ready(function () {
-    $('.feed-item').click(function () {
-        var $this = $(this);
-        $('.feed-body', $this).slideToggle();
+    $('.feed-item .title').click(function () {
+        var $item = $(this).closest('.feed-item');
+        $('.feed-body', $item).slideToggle();
 
         // Declare as read
-        var id = $this.attr('data-id');
+        var id = $item.attr('data-id');
         $.ajax({
             type: "POST",
             url: '/api/v1/feed_items/read.json',
             data: { _method: 'PUT', id:id },
             dataType: 'json',
             success: function (msg) {
-                $this.addClass('read');
+                $item.addClass('read');
             }
+        });
+    });
+
+    $('.feed-item .star').click(function() {
+        var $star = $(this);
+        var $item = $star.closest('.feed-item');
+        var success = function (msg) {
+            $star.toggleClass('active');
+        };
+        var method = $star.hasClass('active') ? 'unstar' : 'star';
+        var id = $item.attr('data-id');
+
+        $.ajax({
+            type: "POST",
+            url: '/api/v1/feed_items/' + method + '.json',
+            data: { _method: 'PUT', id:id },
+            dataType: 'json',
+            success: success
         });
     });
 });
