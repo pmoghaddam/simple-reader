@@ -11,6 +11,8 @@ gem 'devise', '2.2.3' # User authentication
 gem "cells", "3.8.8" # Cells for widgets
 gem 'kaminari', '0.14.1' # Pagination
 
+gem 'grape', '0.3.2' # API integration
+
 group :production do
   gem 'newrelic_rpm', '~> 3.5.5.38' # Instrumenting
   gem "pg", '0.14.1' # PostgreSQL for Heroku

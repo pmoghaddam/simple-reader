@@ -1,0 +1,8 @@
+.feed-item{class: feed_item.read ? 'read' : '', data: {id: feed_item.id}}
+  .row.feed-header
+    .ten.columns.mobile-three.title= feed_item.title
+    .two.columns.mobile-one.date= feed_item.date
+
+  .row.feed-body
+    .twelve.columns
+      %p.summary= feed_item.summary

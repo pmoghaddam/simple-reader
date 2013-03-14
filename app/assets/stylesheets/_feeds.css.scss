@@ -34,17 +34,45 @@ header {
 .feed-item {
   border-bottom: 1px dashed black;
 
-  .title {
-    font-size: 1em;
+  .feed-header {
+    margin: 0.5em 0 0.5em 0;
+    line-height: 1.3em;
+
+    cursor: hand;
+    cursor: pointer;
   }
-  &:first-child .title {
-    margin-top: 0
+
+  .title {
+    padding-left: 0;
+    font-weight: bold;
+    font-size: 1em;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &.read .title {
+    font-weight: normal !important;
+    font-style: italic;
+  }
+
+  .date {
+    color: #666;
+    padding-right: 0;
+    text-align: right;
+  }
+
+  .feed-body {
+    display: none;
   }
 }
 
 footer {
   margin: 2em 0;
-  .designed { text-align: right; }
+  .designed {
+    text-align: right;
+  }
 }
 
 .pagination {
@@ -53,4 +81,5 @@ footer {
 
 .subscribe.button {
   padding: 5px;
+  font-size: 0.9em;
 }

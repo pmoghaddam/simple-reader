@@ -1,0 +1,2 @@
+class FeedItemsDecorator < PaginatedCollectionDecorator
+end

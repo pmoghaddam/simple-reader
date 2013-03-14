@@ -8,8 +8,5 @@
       .alert-box.alert= alert
 
     = render 'shared/toolbar'
-    - @feed_items.each do |feed_item|
-      .feed-item
-        %h6.title= link_to feed_item.title, feed_item.url
-        %p.summary= feed_item.summary
+    = render :partial => 'feed_item', :collection => @feed_items
     = paginate @feed_items
