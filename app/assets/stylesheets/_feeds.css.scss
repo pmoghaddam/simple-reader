@@ -13,6 +13,14 @@ header {
   }
 }
 
+aside {
+  .links li {
+    display: block;
+    float: none;
+    text-align: center;
+  }
+}
+
 .feed {
   .title {
     font-weight: normal;

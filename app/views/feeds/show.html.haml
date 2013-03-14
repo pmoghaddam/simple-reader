@@ -1,6 +1,7 @@
 .row
   %aside.three.columns
     = render_cell :feeds, :sidebar
+    = render 'shared/links'
   .nine.columns{role:'content'}
     - if notice
       .alert-box= notice

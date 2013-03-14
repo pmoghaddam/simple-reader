@@ -1,5 +1,0 @@
-# Simple Reader
-A minimalist clone of Google Reader.
-
-# TODO
-* API should properly authenticate itself
