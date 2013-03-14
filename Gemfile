@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 
 gem "haml-rails", '0.4' # Cleaner mark-up
 gem 'feedzirra', '0.2.0.rc2' # Parsing feeds
+gem 'nokogiri', '1.5.6' # Parse XML docs
 gem "draper", "1.1.0" # Decorator for views
 gem 'compass-rails', '1.0.1' # Compass (required before Foundation)
 gem 'zurb-foundation', '3.2.5' # Foundation front-end

@@ -3,11 +3,7 @@
     = render_cell :feeds, :sidebar
     = render 'shared/links'
   .nine.columns{role:'content'}
-    - if notice
-      .alert-box= notice
-    - if alert
-      .alert-box.alert= alert
-
+    = render 'shared/alerts'
     = render 'shared/toolbar'
     = render :partial => 'feed_item', :collection => @feed_items
     = paginate @feed_items

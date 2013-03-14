@@ -7,6 +7,8 @@ class FeedItemDecorator < Draper::Decorator
 
   def summary(length = 500)
     content = model.summary || model.content || ""
+    content = h.strip_tags content
+
     summary = h.truncate content,
                      :length => length,
                      :omission => "..."

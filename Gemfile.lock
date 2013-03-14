@@ -231,6 +231,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (= 0.14.1)
   newrelic_rpm (~> 3.5.5.38)
+  nokogiri (= 1.5.6)
   pg (= 0.14.1)
   rails (= 3.2.12)
   rspec-rails

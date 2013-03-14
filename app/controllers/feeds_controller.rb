@@ -15,12 +15,20 @@ class FeedsController < ApplicationController
   # POST /feeds
   def create
     service = FeedService.new
-    @feed = service.add_and_fetch(params[:url], current_user)
+    options = {}
+    begin
+      @feed = service.add_and_fetch(params[:url], current_user)
+      options[:notice] = 'Feed was successfully created.'
+    rescue Exception
+      options[:alert]  = "Unable to add Feed: #{params[:url]}"
+    end
+
+
     respond_to do |format|
-      if @feed.save
-        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
+      if @feed.try(:save)
+        format.html { redirect_to @feed, options }
       else
-        format.html { redirect_to feeds_url}
+        format.html { redirect_to feeds_url, options }
       end
     end
   end
