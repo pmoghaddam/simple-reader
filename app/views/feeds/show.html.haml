@@ -1,12 +1,12 @@
 = render 'shared/header'
 
 .row
-  .three.columns
+  %aside.three.columns
     = render_cell :feeds, :sidebar
   .nine.columns{role:'content'}
     - @feed.feed_items.each do |feed_item|
       .feed-item
-        %h2= feed_item.title
-        %p= feed_item.summary
+        %h2.title= feed_item.title
+        %p.summary= feed_item.summary
 
 = render 'shared/footer'

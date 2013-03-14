@@ -1,5 +1,5 @@
 .feed
-  %h4= link_to t('all_items'), root_path
+  %h4.title= link_to t('all_items'), root_path
 - @feeds.each do |feed|
   .feed
-    %h4= link_to feed.title, feed
+    %h4.title= link_to feed.title, feed
