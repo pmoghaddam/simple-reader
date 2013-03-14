@@ -3,6 +3,7 @@ SimpleReader::Application.routes.draw do
 
   resources :feeds do
     collection do
+      get 'starred'
       put 'mark_all_as_read'
       get 'refresh'
     end

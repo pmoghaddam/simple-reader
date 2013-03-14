@@ -6,7 +6,8 @@
       = submit_tag "Subscribe", class: 'subscribe button expand postfix'
 
 .panel.feed
-  %h4.title= link_to t('all_items'), root_path
+  .title.special= link_to t('all_items'), root_path
+  .title.special= link_to t('starred_items'), starred_feeds_path
   - @feeds.each do |feed|
     .row
       .ten.columns.mobile-three

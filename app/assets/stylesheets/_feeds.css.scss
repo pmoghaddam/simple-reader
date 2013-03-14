@@ -31,6 +31,9 @@ aside {
     text-overflow: ellipsis;
     overflow: hidden;
   }
+  .special {
+    font-weight: bold !important;
+  }
   .options {
     text-align: right;
     a.delete {

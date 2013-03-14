@@ -6,6 +6,11 @@ class FeedsController < ApplicationController
     @feed_items = FeedQuery.new(current_user).feed_items().page(params[:page]).per(25).decorate
   end
 
+  def starred
+    @feed_items = FeedQuery.new(current_user).starred_items().page(params[:page]).per(25).decorate
+    render 'index'
+  end
+
   # GET /feeds/1
   def show
     @feed = current_user.feeds.find(params[:id])

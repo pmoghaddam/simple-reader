@@ -5,3 +5,5 @@ en:
   hello: "Hello world"
   read_more: "Read more"
   simple_reader: "Simple Reader"
+  all_items: "All Items"
+  starred_items: "Starred Items"
