@@ -8,18 +8,8 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1
   def show
-    @feed = Feed.find(params[:id])
+    @feed = current_user.feeds.find(params[:id])
     @feed_items = @feed.feed_items.page(params[:page]).per(10)
-  end
-
-  # GET /feeds/new
-  def new
-    @feed = Feed.new
-  end
-
-  # GET /feeds/1/edit
-  def edit
-    @feed = Feed.find(params[:id])
   end
 
   # POST /feeds
@@ -38,7 +28,7 @@ class FeedsController < ApplicationController
 
   # PUT /feeds/1
   def update
-    @feed = Feed.find(params[:id])
+    @feed = current_user.feeds.find(params[:id])
 
     respond_to do |format|
       if @feed.update_attributes(params[:feeds])
@@ -51,8 +41,21 @@ class FeedsController < ApplicationController
 
   # DELETE /feeds/1
   def destroy
-    @feed = Feed.find(params[:id])
+    @feed = current_user.feeds.find(params[:id])
     @feed.destroy
     redirect_to feeds_url
   end
+
+  def refresh
+    service = FeedService.new
+    service.refresh(current_user)
+
+    flash[:notice] = 'Feeds have been successfully updated'
+    redirect_to feeds_url
+  end
+
+  def mark_all_as_read
+    redirect_to feeds_url
+  end
+
 end

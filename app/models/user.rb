@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :feeds
+  has_many :feeds, :dependent => :destroy
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

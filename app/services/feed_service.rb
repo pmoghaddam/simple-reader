@@ -33,4 +33,8 @@ class FeedService
     feed
   end
 
+  def refresh(user)
+    user.feeds.each { |feed| fetch(feed) }
+  end
+
 end

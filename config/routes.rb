@@ -1,7 +1,12 @@
 SimpleReader::Application.routes.draw do
   devise_for :users
 
-  resources :feeds
+  resources :feeds do
+    collection do
+      put 'mark_all_as_read'
+      get 'refresh'
+    end
+  end
 
   root :to => "feeds#index"
 

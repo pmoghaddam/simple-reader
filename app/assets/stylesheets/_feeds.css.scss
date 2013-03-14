@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 header {
-  h1 { font-size:  2em; }
+  h1 {
+    font-size: 2em;
+  }
   margin-bottom: 1em;
   #user-nav {
     padding: 1em 0 0 1em;
@@ -15,19 +16,35 @@ header {
 .feed {
   .title {
     font-weight: normal;
-    font-size:  1em;
+    font-size: 1em;
+    margin-bottom: 1em;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .options {
+    text-align: right;
+    a.delete {
+      color: red;
+    }
   }
 }
 
 .feed-item {
-  border-bottom:  1px dashed black;
+  border-bottom: 1px dashed black;
 
-  .title { font-size:  1.5em; }
-  &:first-child .title { margin-top: 0 }
+  .title {
+    font-size: 1em;
+  }
+  &:first-child .title {
+    margin-top: 0
+  }
 }
 
 footer {
-  margin-top: 2em;
+  margin: 2em 0;
+  .designed { text-align: right; }
 }
 
 .pagination {
