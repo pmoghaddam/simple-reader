@@ -1,5 +1,12 @@
-.feed
+= form_tag('/feeds', method: 'post') do
+  .row.collapse
+    .eight.columns.mobile-three
+      = text_field_tag 'url'
+    .four.columns.mobile-one
+      = submit_tag "Subscribe", class: 'subscribe button expand postfix'
+
+.panel.feed
   %h4.title= link_to t('all_items'), root_path
-- @feeds.each do |feed|
-  .feed
-    %h4.title= link_to feed.title, feed
+  - @feeds.each do |feed|
+    .feed
+      %h4.title= link_to feed.title, feed

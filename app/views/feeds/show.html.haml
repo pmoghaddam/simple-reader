@@ -4,9 +4,14 @@
   %aside.three.columns
     = render_cell :feeds, :sidebar
   .nine.columns{role:'content'}
+    - if notice
+      .alert-box= notice
+    - if alert
+      .alert-box.alert= alert
+
     - @feed_items.each do |feed_item|
       .feed-item
-        %h2.title= feed_item.title
+        %h2.title= link_to feed_item.title, feed_item.url
         %p.summary= feed_item.summary
     = paginate @feed_items
 

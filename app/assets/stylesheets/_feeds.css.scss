@@ -5,6 +5,7 @@
 
 header {
   h1 { font-size:  2em; }
+  margin-bottom: 1em;
 }
 
 .feed {
@@ -16,9 +17,19 @@ header {
 
 .feed-item {
   border-bottom:  1px dashed black;
+
   .title { font-size:  1.5em; }
+  &:first-child .title { margin-top: 0 }
 }
 
 footer {
   margin-top: 2em;
+}
+
+.pagination {
+  margin-top: 1em;
+}
+
+.subscribe.button {
+  padding: 5px;
 }

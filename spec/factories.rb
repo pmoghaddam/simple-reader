@@ -15,6 +15,7 @@ FactoryGirl.define do
     title { Faker::Lorem.words(10).join(" ").titleize }
     summary { Faker::Lorem.paragraphs(1).join(" ") }
     url { Faker::Internet.url }
+    published_date { Time.now }
   end
 
 end

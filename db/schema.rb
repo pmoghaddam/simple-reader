@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314033608) do
+ActiveRecord::Schema.define(:version => 20130314053038) do
 
   create_table "feed_items", :force => true do |t|
     t.string   "title"
@@ -19,11 +19,14 @@ ActiveRecord::Schema.define(:version => 20130314033608) do
     t.text     "summary"
     t.string   "url"
     t.boolean  "read"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "feed_id"
+    t.text     "content"
+    t.datetime "published_date"
   end
 
+  add_index "feed_items", ["feed_id", "url"], :name => "index_feed_items_on_feed_id_and_url", :unique => true
   add_index "feed_items", ["feed_id"], :name => "index_feed_items_on_feed_id"
 
   create_table "feeds", :force => true do |t|
@@ -32,7 +35,10 @@ ActiveRecord::Schema.define(:version => 20130314033608) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "feed_url"
   end
+
+  add_index "feeds", ["user_id", "feed_url"], :name => "index_feeds_on_user_id_and_feed_url", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

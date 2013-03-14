@@ -42,7 +42,9 @@ class FeedsController < ApplicationController
   # POST /feeds
   # POST /feeds.json
   def create
-    @feed = Feed.new(params[:feeds])
+    service = FeedService.new
+    user = User.first # TODO: Temporary
+    @feed = service.add_and_fetch(params[:url], user)
 
     respond_to do |format|
       if @feed.save
