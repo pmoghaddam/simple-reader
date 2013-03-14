@@ -1,7 +1,8 @@
 class FeedsCell < Cell::Rails
+  include Devise::Controllers::Helpers
 
   def sidebar
-    @feeds = Feed.all
+    @feeds = current_user.feeds
     render
   end
 

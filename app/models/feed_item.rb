@@ -3,4 +3,5 @@ class FeedItem < ActiveRecord::Base
 
   attr_accessible :author, :read, :summary, :content, :title, :url, :published_date, :feed
 
-  default_scope -> { order("published_date ASC") }end
+  default_scope -> { order("published_date DESC") }
+end

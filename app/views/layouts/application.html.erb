@@ -25,7 +25,13 @@
   <%= yield :head %>
 </head>
 <body>
-    <%= yield %>
+    <div class="row">
+      <div class="twelve columns">
+        <%= render 'shared/header' %>
+        <%= yield %>
+        <%= render 'shared/footer' %>
+      </div>
+    </div>
 
     <%= yield :footer %>
 </body>

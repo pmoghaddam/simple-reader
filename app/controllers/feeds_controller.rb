@@ -1,37 +1,20 @@
 class FeedsController < ApplicationController
-  # GET /feeds
-  # GET /feeds.json
-  def index
-    @feed_ids = Feed.all.map { |f| f.id }
-    @feed_items = FeedItem.where(:feed_id => @feed_ids).page(params[:page]).per(10)
+  before_filter :authenticate_user!
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @feed_items }
-    end
+  # GET /feeds
+  def index
+    @feed_items = FeedItem.joins(:feed).where('feeds.user_id' => current_user.id).page(params[:page]).per(10)
   end
 
   # GET /feeds/1
-  # GET /feeds/1.json
   def show
     @feed = Feed.find(params[:id])
     @feed_items = @feed.feed_items.page(params[:page]).per(10)
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @feed }
-    end
   end
 
   # GET /feeds/new
-  # GET /feeds/new.json
   def new
     @feed = Feed.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @feed }
-    end
   end
 
   # GET /feeds/1/edit
@@ -40,48 +23,36 @@ class FeedsController < ApplicationController
   end
 
   # POST /feeds
-  # POST /feeds.json
   def create
     service = FeedService.new
-    user = User.first # TODO: Temporary
-    @feed = service.add_and_fetch(params[:url], user)
+    @feed = service.add_and_fetch(params[:url], current_user)
 
     respond_to do |format|
       if @feed.save
         format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
-        format.json { render json: @feed, status: :created, location: @feed }
       else
         format.html { render action: "new" }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PUT /feeds/1
-  # PUT /feeds/1.json
   def update
     @feed = Feed.find(params[:id])
 
     respond_to do |format|
       if @feed.update_attributes(params[:feeds])
         format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /feeds/1
-  # DELETE /feeds/1.json
   def destroy
     @feed = Feed.find(params[:id])
     @feed.destroy
-
-    respond_to do |format|
-      format.html { redirect_to feeds_url }
-      format.json { head :no_content }
-    end
+    redirect_to feeds_url
   end
 end
