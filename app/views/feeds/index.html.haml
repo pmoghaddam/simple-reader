@@ -2,9 +2,7 @@
 
 .row
   .three.columns
-    - @feeds.each do |feed|
-      .feed
-        %h4= link_to feed.title, feed
+    = render_cell :feeds, :sidebar
   .nine.columns{role:'content'}
     - @feeds.each do |feed|
       - feed.feed_items.each do |feed_item|

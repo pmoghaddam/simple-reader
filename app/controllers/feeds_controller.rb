@@ -2,7 +2,7 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = Feed.all
+    @feeds = Feed.all(include: :feed_items)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,6 @@ class FeedsController < ApplicationController
   # GET /feeds/1
   # GET /feeds/1.json
   def show
-    @feeds = Feed.all
     @feed = Feed.find(params[:id])
 
     respond_to do |format|
