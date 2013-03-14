@@ -58,5 +58,13 @@ module SimpleReader
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # On Heroku, prevents accessing DB or loading models when pre-compiling assets
+    config.assets.initialize_on_precompile = false
+
+    # Generator modification
+    config.generators do |g|
+      g.fixture_replacement :factory_girl
+    end
   end
 end
