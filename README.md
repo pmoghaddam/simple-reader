@@ -1,8 +1,7 @@
-# Simple Reader
 A minimalist clone of Google Reader.
 
-## Vision
-Simple Reader aims to keep the minimalist feel of Google Reader. Additionally, it aims to build itself Mobile First with a focus on performance. The experience should be extremely intuitive and as simple as possible.
+## Overview / History
+Simple Reader was developed during a weekend upon the news of Google Reader being decomissioned. Set with a task, and challenge of 48 hours, Simpler Reader was born. While aiming to match basic functionalities of Google Reader, it went beyond it by providing a Mobile First design that allowed mobile navigation which Google Reader lacked. The project was not maintained due to the excellent alternative of Feedly.
 
-## Contribute
-If you wish to help, please create a fork and send a pull request. Alternatively, star the project or send me an email expressing interesting.
+## Architecture
+The codebase follows a basic Rails architecture with the addition of using Service objects and Query objects for modularization.
